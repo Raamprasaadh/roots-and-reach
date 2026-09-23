@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roots and Reach | Speech Therapy for All</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f9',
+                            100: '#d9e2ec',
+                            200: '#bcccdc',
+                            300: '#9fb3c8',
+                            400: '#829ab1',
+                            500: '#335078',
+                            600: '#23416b',
+                            700: '#1d3960',
+                            800: '#1B365D', // Brand Navy
+                            900: '#122644',
+                            950: '#0a172c',
+                        },
+                        offwhite: {
+                            50: '#ffffff',
+                            100: '#F9F9F6', // Brand Off-White
+                            200: '#f1f1eb',
+                            300: '#e5e5dc',
+                            400: '#d1d1c4',
+                            500: '#bcbcb0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9F9F6;
+            color: #122644;
+        }
+        .glass-header {
+            background: rgba(249, 249, 246, 0.95);
+            backdrop-filter: blur(12px);
+        }
+        .insta-gradient {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        }
+        .feedback-display-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-height: 520px;
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+
+        .feedback-card {
+            background-color: var(--off-white);
+            border: 1px solid var(--border-color);
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--navy-primary);
+            font-size: 1rem;
+        }
+
+        .feedback-stars {
+            color: #F59E0B;
+            font-size: 0.95rem;
+        }
+
+        .feedback-service {
+            display: inline-block;
+            font-size: 0.75rem;
+            background-color: rgba(27, 54, 93, 0.08);
+            color: var(--navy-primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-comment {
+            color: var(--text-dark);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .feedback-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.6rem;
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="bg-offwhite-100 text-navy-900 antialiased selection:bg-navy-800 selection:text-offwhite-100">
+
+    <header class="fixed top-0 left-0 right-0 z-40 glass-header border-b border-offwhite-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo & Brand Title -->
+                <a href="#home" class="flex items-center gap-3.5 group">
+                    <!-- Embedded Vector Logo Emblem representing the exact image -->
+                    <div class="w-12 h-12 flex-shrink-0 relative">
+                        <img src="./logo.png" alt="logo">
+                    </div>
+                    <div>
+                        <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-navy-800 block leading-none">Roots and Reach</span>
+                        <span class="text-xs font-bold text-navy-600 tracking-wider uppercase">Speech Therapy for All</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Links -->
+                <nav class="hidden md:flex items-center space-x-7">
+                    <a href="#home" class="text-navy-900 hover:text-navy-600 font-semibold transition-colors">Home</a>
+                    <a href="#therapist" class="text-navy-900 hover:text-navy-600 font-semibold transition-colors">Therapist Profile</a>
+                    <a href="#services" class="text-navy-900 hover:text-navy-600 font-semibold transition-colors">Services</a>
+                    <!--<a href="#feedback">Client Testimonials</a>-->
+                    <a href="#contact" class="bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-5 py-2.5 rounded-xl font-semibold transition-all shadow-md">
+                        Book Session
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-xl text-navy-800 hover:bg-offwhite-200" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-offwhite-100 border-b border-offwhite-300 px-4 pt-3 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-navy-900 hover:bg-offwhite-200">Home</a>
+            <a href="#therapist" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-navy-900 hover:bg-offwhite-200">Shruti R. (Lead SLP)</a>
+            <a href="#services" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-navy-900 hover:bg-offwhite-200">Services</a>
+            <!-- <a href="#feedback">Client Testimonials</a> -->
+            <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-bold bg-navy-800 text-offwhite-100 text-center mt-2">Book Session</a>
+        </div>
+    </header>
+
+    <section id="home" class="pt-28 lg:pt-36 pb-16 lg:pb-24 bg-gradient-to-b from-navy-50/50 via-offwhite-100 to-offwhite-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-navy-100 text-navy-800 border border-navy-200">
+                        <i class="fa-solid fa-comments text-navy-800"></i> Comprehensive Speech Care Across All Ages
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-navy-950 leading-tight">
+                        Deep Speech Roots. <br>
+                        <span class="text-navy-800">Limitless Human Reach.</span>
+                    </h1>
+                    <p class="text-lg text-slate-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                        Welcome to <strong>Roots and Reach: Speech Therapy for All</strong>. Led by <strong>Shruti R.</strong> (Lead Speech-Language Pathologist), we deliver specialized speech, language, voice, and neuro-rehabilitation therapies for toddlers, adults, and seniors.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#contact" class="inline-flex justify-center items-center gap-2 bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-7 py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all">
+                            Book Consultation <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <!-- <a href="#feedback" class="inline-flex justify-center items-center gap-2 bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-7 py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all">
+                            See Client testimonials <i class="fa-solid fa-arrow-right"></i>
+                        </a> -->
+                    </div>
+                </div>
+
+                <!-- Circular Logo Feature Box -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="bg-offwhite-50 p-8 rounded-3xl border border-offwhite-300 shadow-xl max-w-md w-full text-center relative overflow-hidden">
+                        <img src="./logo.png" alt="logo">
+                        <h3 class="text-xl font-bold text-navy-800">Speech Therapy For All</h3>
+                        <p class="text-xs text-slate-600 mt-1 font-semibold uppercase tracking-wider">Children • Adults • Elderly Care</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="therapist" class="py-20 bg-offwhite-50 border-y border-offwhite-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs uppercase font-black text-navy-800 tracking-wider">Lead Practitioner</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-1">Meet Shruti R.</h2>
+                <p class="text-slate-600 mt-2 font-medium">Dedicated speech therapy practitioner bridging communication barriers across generations.</p>
+            </div>
+
+            <div class="bg-offwhite-100 rounded-3xl border border-offwhite-300 p-6 sm:p-10 shadow-lg max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <!-- Profile Picture -->
+                    <div class="md:col-span-5 text-center">
+                        <div class="relative w-56 h-56 sm:w-64 sm:h-64 mx-auto rounded-3xl overflow-hidden border-4 border-navy-800 shadow-xl mb-4">
+                            <img src="https://images.unsplash.com/photo-1594824813566-78a933f2c38f?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Shruti R. Lead Speech Therapist" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/500x500/1B365D/F9F9F6?text=Shruti+R.+SLP';">
+                        </div>
+                        <span class="inline-block px-3 py-1 bg-navy-800 text-offwhite-100 text-xs font-bold rounded-full">
+                            Lead Speech-Language Pathologist
+                        </span>
+                    </div>
+
+                    <!-- Profile Bio Info -->
+                    <div class="md:col-span-7 space-y-4">
+                        <div>
+                            <h3 class="text-3xl font-extrabold text-navy-950">Shruti R.</h3>
+                            <p class="text-navy-700 font-bold text-sm">BASLP / MSLP — Audiologist & Speech-Language Pathologist</p>
+                        </div>
+
+                        <p class="text-slate-700 text-sm leading-relaxed font-medium">
+                            Shruti R. is the lead clinical speech specialist at <strong>Roots and Reach</strong>. With deep expertise in child speech delays, stammering, stroke speech recovery, and adult voice care, Shruti creates personalized evidence-based therapy plans that give individuals a confident voice.
+                        </p>
+
+                        <div>
+                            <h4 class="text-xs font-bold uppercase text-navy-800 tracking-wider mb-2">Core Clinical Focus Areas:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-lg bg-navy-100 text-navy-900 text-xs font-bold border border-navy-200"><i class="fa-solid fa-child text-navy-800 mr-1"></i> Child Speech Delay</span>
+                                <span class="px-3 py-1 rounded-lg bg-navy-100 text-navy-900 text-xs font-bold border border-navy-200"><i class="fa-solid fa-comment-dots text-navy-800 mr-1"></i> Stuttering & Fluency</span>
+                                <span class="px-3 py-1 rounded-lg bg-navy-100 text-navy-900 text-xs font-bold border border-navy-200"><i class="fa-solid fa-brain text-navy-800 mr-1"></i> Adult Neuro Rehab</span>
+                                <span class="px-3 py-1 rounded-lg bg-navy-100 text-navy-900 text-xs font-bold border border-navy-200"><i class="fa-solid fa-mobile-screen text-navy-800 mr-1"></i> AAC Devices</span>
+                                <span class="px-3 py-1 rounded-lg bg-navy-100 text-navy-900 text-xs font-bold border border-navy-200"><i class="fa-solid fa-user-nurse text-navy-800 mr-1"></i> Geriatric Care</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex flex-wrap gap-3">
+                            <a href="#contact" onclick="preselectTherapist('Shruti R. (Lead Speech-Language Pathologist)')" class="bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-6 py-2.5 rounded-xl text-sm font-bold shadow-md transition-all">
+                                Book Consultation with Shruti
+                            </a>
+                            <a href="mailto:rootsandreach.in@gmail.com" class="border border-navy-800 text-navy-900 hover:bg-navy-50 px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-envelope"></i> Email Direct
+                            </a>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-3">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-offwhite-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs uppercase font-black text-navy-800 tracking-wider">Clinical Offerings</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-1">Therapy Services for Every Stage of Life</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pediatric -->
+                <div class="bg-offwhite-50 p-8 rounded-3xl border border-offwhite-300 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-navy-800 text-offwhite-100 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-baby"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950 mb-3">Pediatric Speech & Articulation</h3>
+                    <ul class="text-slate-700 text-sm space-y-2 font-medium mb-6">
+                        <li>• Toddler Late Talker Stimulation</li>
+                        <li>• Speech Sound Articulation Therapy</li>
+                        <li>• Autism & ADHD Communication Support</li>
+                        <li>• Bilingual Speech Development</li>
+                    </ul>
+                    <a href="#contact" class="text-navy-800 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Inquire Care <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Adult Care -->
+                <div class="bg-offwhite-50 p-8 rounded-3xl border border-offwhite-300 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-navy-800 text-offwhite-100 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950 mb-3">Adult Fluency & Voice Therapy</h3>
+                    <ul class="text-slate-700 text-sm space-y-2 font-medium mb-6">
+                        <li>• Stammering / Stuttering Control</li>
+                        <li>• Professional Voice Strain Recovery</li>
+                        <li>• Accent Modification & Speech Clarity</li>
+                        <li>• AAC Assistive Technology Setup</li>
+                    </ul>
+                    <a href="#contact" class="text-navy-800 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Inquire Care <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Geriatric & Neuro -->
+                <div class="bg-offwhite-50 p-8 rounded-3xl border border-offwhite-300 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-navy-800 text-offwhite-100 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950 mb-3">Neuro & Elderly Speech Care</h3>
+                    <ul class="text-slate-700 text-sm space-y-2 font-medium mb-6">
+                        <li>• Post-Stroke Aphasia Rehabilitation</li>
+                        <li>• Parkinson's Speech Strength Care</li>
+                        <li>• Swallowing Therapy (Dysphagia)</li>
+                        <li>• Senior Cognitive Speech Maintenance</li>
+                    </ul>
+                    <a href="#contact" class="text-navy-800 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Inquire Care <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-offwhite-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs uppercase font-black text-navy-800 tracking-wider">Book Consultation</span>
+                        <h2 class="text-3xl font-extrabold text-navy-950 mt-1">Get in Touch with Shruti R.</h2>
+                        <p class="text-slate-700 mt-2 text-sm leading-relaxed font-medium">
+                            Request an evaluation session or inquire about home therapy plans. You can send us a message below or contact us directly via email.
+                        </p>
+                    </div>
+
+                    <div class="bg-offwhite-50 p-6 rounded-3xl border border-offwhite-300 shadow-sm space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-navy-800 text-offwhite-100 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Official Practice Email</h4>
+                                <a href="mailto:rootsandreach.in@gmail.com" class="text-navy-800 font-extrabold text-sm hover:underline break-all">
+                                    rootsandreach.in@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 pt-2 border-t border-offwhite-300">
+                            <div class="w-12 h-12 rounded-2xl bg-navy-800 text-offwhite-100 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Direct Instagram Booking</h4>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-navy-800 font-bold text-xs hover:underline">
+                                    Send DM on Instagram
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<!-- <section class="container" id="feedback">
+        <div class="section-header">
+            <h2>Client Testimonials & Feedback</h2>
+            <p>Read what our clients say and share your own experience with Shruti R.</p>
+        </div>
+
+        <div class="feedback-section">
+            <div class="feedback-grid">
+                
+                <div class="feedback-form-card">
+                    <h3 style="color:var(--navy-primary); margin-bottom:1rem; font-size:1.3rem;">Share Your Experience</h3>
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="clientName">Your Name</label>
+                            <input type="text" id="clientName" class="form-control" placeholder="e.g., Anitha M." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceReceived">Service Received</label>
+                            <select id="serviceReceived" class="form-control" required>
+                                <option value="Pediatric Speech Therapy">Pediatric Speech Therapy</option>
+                                <option value="Stuttering & Fluency Therapy">Stuttering & Fluency Therapy</option>
+                                <option value="Adult Neuro Rehabilitation">Adult Neuro Rehabilitation</option>
+                                <option value="Voice & Swallowing Care">Voice & Swallowing Care</option>
+                                <option value="General Consultation">General Consultation</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <div class="star-rating" id="starRating">
+                                <span data-rating="1">&#9733;</span>
+                                <span data-rating="2">&#9733;</span>
+                                <span data-rating="3">&#9733;</span>
+                                <span data-rating="4">&#9733;</span>
+                                <span data-rating="5" class="active">&#9733;</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="feedbackComment">Your Feedback</label>
+                            <textarea id="feedbackComment" class="form-control" rows="4" placeholder="Write your feedback regarding therapy sessions with Shruti R..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-navy">Submit Feedback</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h3 style="color:var(--navy-primary); margin-bottom:1rem; font-size:1.3rem;">Recent Client Reviews</h3>
+                    <div class="feedback-display-list" id="feedbackList">
+                        <!-- Dynamic feedback cards load here -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!--<div class="json-controls">
+                <div>
+                    <span style="font-size:0.85rem; color:var(--text-muted);">Stored locally in JSON format</span>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn-outline" onclick="toggleJSONView()">View Raw JSON Data</button>
+                    <button class="btn-outline" onclick="downloadJSONFile()">Download Feedback (.json)</button>
+                </div>
+                <div id="jsonBox" class="json-box"></div>
+            </div>-->
+        </div>
+    </section> -->
+    
+    <footer class="bg-navy-950 text-offwhite-300 py-12 border-t border-navy-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-navy-900">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-navy-800 text-offwhite-100 flex items-center justify-center font-bold text-xl border border-navy-700">
+                        <img src="./logo.png" alt="logo">
+                    </div>
+                    <div>
+                        <span class="text-xl font-black text-offwhite-100 tracking-tight block">Roots and Reach</span>
+                        <span class="text-xs text-navy-300 font-bold uppercase tracking-wider">Speech Therapy for All</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-6 text-xs font-semibold text-slate-300">
+                    <a href="#home" class="hover:text-offwhite-100">Home</a>
+                    <a href="#therapist" class="hover:text-offwhite-100">Shruti R.</a>
+                    <a href="#services" class="hover:text-offwhite-100">Services</a>
+                    <a href="#instagram" class="hover:text-offwhite-100">Instagram</a>
+                    <a href="#contact" class="hover:text-offwhite-100">Book Session</a>
+                </div>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400 font-medium">
+                <p>&copy; <span id="year-span"></span> Roots and Reach: Speech Therapy for All.</p>
+                <p>Contact Email: <a href="mailto:rootsandreach.in@gmail.com" class="text-navy-300 font-bold hover:underline">rootsandreach.in@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year-span').textContent = new Date().getFullYear();
+
+        // Mobile Nav Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Form Submission Logic
+        const bookingForm = document.getElementById('booking-form');
+        const formSuccess = document.getElementById('form-success');
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formSuccess.classList.remove('hidden');
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            bookingForm.reset();
+            
+            setTimeout(() => {
+                formSuccess.classList.add('hidden');
+            }, 7000);
+        });
+
+        window.preselectTherapist = function(name) {
+            const select = document.getElementById('therapist-selection');
+            if(select) {
+                select.value = name;
+            }
+        };
+    </script>
+</body>
+</html>
