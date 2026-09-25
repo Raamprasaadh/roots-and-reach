@@ -43,78 +43,7 @@
     <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F9F9F6;
-            color: #122644;
-        }
-        .glass-header {
-            background: rgba(249, 249, 246, 0.95);
-            backdrop-filter: blur(12px);
-        }
-        .insta-gradient {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-        }
-        .feedback-display-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            max-height: 520px;
-            overflow-y: auto;
-            padding-right: 6px;
-        }
-
-        .feedback-card {
-            background-color: var(--off-white);
-            border: 1px solid var(--border-color);
-            padding: 1.2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .feedback-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-        }
-
-        .client-name {
-            font-weight: 700;
-            color: var(--navy-primary);
-            font-size: 1rem;
-        }
-
-        .feedback-stars {
-            color: #F59E0B;
-            font-size: 0.95rem;
-        }
-
-        .feedback-service {
-            display: inline-block;
-            font-size: 0.75rem;
-            background-color: rgba(27, 54, 93, 0.08);
-            color: var(--navy-primary);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .feedback-comment {
-            color: var(--text-dark);
-            font-size: 0.92rem;
-            line-height: 1.5;
-        }
-
-        .feedback-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.6rem;
-            text-align: right;
-        }
-    </style>
+    <link href="./style.css" rel="stylesheet">
 </head>
 <body class="bg-offwhite-100 text-navy-900 antialiased selection:bg-navy-800 selection:text-offwhite-100">
 
@@ -125,8 +54,8 @@
                 <!-- Logo & Brand Title -->
                 <a href="#home" class="flex items-center gap-3.5 group">
                     <!-- Embedded Vector Logo Emblem representing the exact image -->
-                    <div class="w-12 h-12 flex-shrink-0 relative">
-                        <img src="./logo.png" alt="logo">
+                    <div class="w-12 h-12 flex-shrink-0 relative overflow-hidden">
+                        <img src="./logo.png" alt="logo" class="w-full h-full object-contain">
                     </div>
                     <div>
                         <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-navy-800 block leading-none">Roots and Reach</span>
@@ -139,7 +68,7 @@
                     <a href="#home" class="text-navy-900 hover:text-navy-600 font-semibold transition-colors">Home</a>
                     <a href="#therapist" class="text-navy-900 hover:text-navy-600 font-semibold transition-colors">Therapist Profile</a>
                     <a href="#services" class="text-navy-900 hover:text-navy-600 font-semibold transition-colors">Services</a>
-                    <!--<a href="#feedback">Client Testimonials</a>-->
+                    <a href="#feedback" class="text-navy-900 hover:text-navy-600 font-semibold transition-colors">Client Testimonials</a>
                     <a href="#contact" class="bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-5 py-2.5 rounded-xl font-semibold transition-all shadow-md">
                         Book Session
                     </a>
@@ -157,7 +86,7 @@
             <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-navy-900 hover:bg-offwhite-200">Home</a>
             <a href="#therapist" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-navy-900 hover:bg-offwhite-200">Shruti R. (Lead SLP)</a>
             <a href="#services" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-navy-900 hover:bg-offwhite-200">Services</a>
-            <!-- <a href="#feedback">Client Testimonials</a> -->
+            <a href="#feedback" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-navy-900 hover:bg-offwhite-200">Client Testimonials</a>
             <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-bold bg-navy-800 text-offwhite-100 text-center mt-2">Book Session</a>
         </div>
     </header>
@@ -182,9 +111,9 @@
                         <a href="#contact" class="inline-flex justify-center items-center gap-2 bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-7 py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all">
                             Book Consultation <i class="fa-solid fa-arrow-right"></i>
                         </a>
-                        <!-- <a href="#feedback" class="inline-flex justify-center items-center gap-2 bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-7 py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all">
+                        <a href="#feedback" class="inline-flex justify-center items-center gap-2 bg-navy-800 hover:bg-navy-700 text-offwhite-100 px-7 py-3.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all">
                             See Client testimonials <i class="fa-solid fa-arrow-right"></i>
-                        </a> -->
+                        </a>
                     </div>
                 </div>
 
@@ -359,86 +288,200 @@
                     </div>
                 </div>
 
+                <div class="lg:col-span-7">
+                    <div class="bg-offwhite-50 rounded-3xl border border-offwhite-300 shadow-sm p-6 sm:p-8 h-full flex flex-col">
+                        <div class="mb-6">
+                            <span class="text-xs uppercase font-black text-navy-800 tracking-wider">Client Voices</span>
+                            <h3 class="text-2xl font-extrabold text-navy-950 mt-1">What Our Clients Say</h3>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div id="testimonialLoading" class="flex-1 flex items-center justify-center py-16 text-slate-500 text-sm font-medium gap-2">
+                            <i class="fa-solid fa-spinner fa-spin"></i> Loading testimonials...
+                        </div>
+
+                        <!-- Empty / Error State -->
+                        <div id="testimonialEmpty" class="hidden flex-1 flex-col items-center justify-center py-16 text-center gap-2">
+                            <i class="fa-solid fa-comment-slash text-2xl text-offwhite-500"></i>
+                            <p class="text-slate-500 text-sm font-medium max-w-xs mx-auto">No testimonials to show yet. Be the first to share your experience!</p>
+                        </div>
+
+                        <!-- Carousel -->
+                        <div id="testimonialCarousel" class="hidden flex-1 flex flex-col">
+                            <div class="relative overflow-hidden flex-1">
+                                <div id="testimonialTrack" class="flex h-full"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between mt-6 pt-4 border-t border-offwhite-300">
+                                <button type="button" id="testimonialPrev" aria-label="Previous testimonial" class="w-10 h-10 rounded-xl border border-offwhite-300 text-navy-800 hover:bg-offwhite-200 flex items-center justify-center transition-all flex-shrink-0">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+
+                                <div id="testimonialDots" class="flex items-center gap-2 flex-wrap justify-center"></div>
+
+                                <button type="button" id="testimonialNext" aria-label="Next testimonial" class="w-10 h-10 rounded-xl border border-offwhite-300 text-navy-800 hover:bg-offwhite-200 flex items-center justify-center transition-all flex-shrink-0">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>
-<!-- <section class="container" id="feedback">
-        <div class="section-header">
-            <h2>Client Testimonials & Feedback</h2>
-            <p>Read what our clients say and share your own experience with Shruti R.</p>
+ <section id="feedback" class="py-20 bg-offwhite-50 border-y border-offwhite-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs uppercase font-black text-navy-800 tracking-wider">Client Feedback</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-1">Share Your Experience</h2>
+            <p class="text-slate-600 mt-2 font-medium">Your journey and thoughts help us provide better care to every client we serve.</p>
         </div>
 
-        <div class="feedback-section">
-            <div class="feedback-grid">
-                
-                <div class="feedback-form-card">
-                    <h3 style="color:var(--navy-primary); margin-bottom:1rem; font-size:1.3rem;">Share Your Experience</h3>
-                    <form id="feedbackForm">
-                        <div class="form-group">
-                            <label for="clientName">Your Name</label>
-                            <input type="text" id="clientName" class="form-control" placeholder="e.g., Anitha M." required>
-                        </div>
+        <div class="bg-offwhite-100 rounded-3xl border border-offwhite-300 shadow-lg max-w-2xl mx-auto overflow-hidden">
 
-                        <div class="form-group">
-                            <label for="serviceReceived">Service Received</label>
-                            <select id="serviceReceived" class="form-control" required>
-                                <option value="Pediatric Speech Therapy">Pediatric Speech Therapy</option>
-                                <option value="Stuttering & Fluency Therapy">Stuttering & Fluency Therapy</option>
-                                <option value="Adult Neuro Rehabilitation">Adult Neuro Rehabilitation</option>
-                                <option value="Voice & Swallowing Care">Voice & Swallowing Care</option>
-                                <option value="General Consultation">General Consultation</option>
-                            </select>
-                        </div>
+            <!-- Header -->
+            <div class="bg-navy-800 p-8 text-center relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+                <h3 class="text-2xl font-bold tracking-tight text-offwhite-100">Speech Therapy Feedback</h3>
+                <p class="text-navy-100 text-sm mt-1 max-w-md mx-auto font-medium">
+                    Your journey and thoughts help us provide better care. Please share your experience below.
+                </p>
+            </div>
 
-                        <div class="form-group">
-                            <label>Rating</label>
-                            <div class="star-rating" id="starRating">
-                                <span data-rating="1">&#9733;</span>
-                                <span data-rating="2">&#9733;</span>
-                                <span data-rating="3">&#9733;</span>
-                                <span data-rating="4">&#9733;</span>
-                                <span data-rating="5" class="active">&#9733;</span>
-                            </div>
-                        </div>
+            <!-- Feedback Form -->
+            <form id="feedbackForm" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-10 space-y-6">
 
-                        <div class="form-group">
-                            <label for="feedbackComment">Your Feedback</label>
-                            <textarea id="feedbackComment" class="form-control" rows="4" placeholder="Write your feedback regarding therapy sessions with Shruti R..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-navy">Submit Feedback</button>
-                    </form>
+                <!-- Alert Message (Error / Warning) -->
+                <div id="errorAlert" class="hidden p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm flex items-start gap-3">
+                    <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mt-0.5 shrink-0"></i>
+                    <div id="errorMessage"></div>
                 </div>
 
+                <!-- Full Name -->
                 <div>
-                    <h3 style="color:var(--navy-primary); margin-bottom:1rem; font-size:1.3rem;">Recent Client Reviews</h3>
-                    <div class="feedback-display-list" id="feedbackList">
-                        <!-- Dynamic feedback cards load here -->
+                    <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Full Name <span class="text-rose-500">*</span></label>
+                    <div class="relative">
+                        <i class="fa-regular fa-user absolute left-4 top-3.5 text-slate-400"></i>
+                        <input type="text" id="fullName" required placeholder="e.g. Sarah Jenkins"
+                            class="w-full pl-11 pr-4 py-3 bg-offwhite-50 border border-offwhite-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition text-navy-900 placeholder-slate-400">
                     </div>
                 </div>
 
+                <!-- Email Address -->
+                <div>
+                    <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Email Address <span class="text-rose-500">*</span></label>
+                    <div class="relative">
+                        <i class="fa-regular fa-envelope absolute left-4 top-3.5 text-slate-400"></i>
+                        <input type="email" id="email" required placeholder="sarah@example.com"
+                            class="w-full pl-11 pr-4 py-3 bg-offwhite-50 border border-offwhite-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition text-navy-900 placeholder-slate-400">
+                    </div>
+                </div>
+
+                <!-- Location Grid: Country & City -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="country" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Country <span class="text-rose-500">*</span></label>
+                        <div class="relative">
+                            <i class="fa-solid fa-globe absolute left-4 top-3.5 text-slate-400"></i>
+                            <input type="text" id="country" required placeholder="e.g. United States"
+                                class="w-full pl-11 pr-4 py-3 bg-offwhite-50 border border-offwhite-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition text-navy-900 placeholder-slate-400">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="city" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">City <span class="text-rose-500">*</span></label>
+                        <div class="relative">
+                            <i class="fa-solid fa-city absolute left-4 top-3.5 text-slate-400"></i>
+                            <input type="text" id="city" required placeholder="e.g. New York"
+                                class="w-full pl-11 pr-4 py-3 bg-offwhite-50 border border-offwhite-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition text-navy-900 placeholder-slate-400">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problem / Area of Focus -->
+                <div>
+                    <label for="problem" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Primary Area of Therapy / Focus <span class="text-rose-500">*</span></label>
+                    <div class="relative">
+                        <i class="fa-solid fa-notes-medical absolute left-4 top-3.5 text-slate-400 pointer-events-none"></i>
+                        <select id="problem" required
+                            class="w-full pl-11 pr-10 py-3 bg-offwhite-50 border border-offwhite-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition appearance-none text-navy-900">
+                            <option value="" disabled selected>Select condition / area of focus...</option>
+                            <option value="Stuttering / Stammering">Stuttering / Stammering</option>
+                            <option value="Speech Delay">Speech Delay</option>
+                            <option value="Articulation & Pronunciation">Articulation & Pronunciation</option>
+                            <option value="Voice Therapy">Voice Therapy</option>
+                            <option value="Aphasia / Stroke Recovery">Aphasia / Stroke Recovery</option>
+                            <option value="Language Impairment">Language Impairment</option>
+                            <option value="Social Communication / Autism">Social Communication / Autism</option>
+                            <option value="Swallowing / Dysphagia">Swallowing / Dysphagia</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down absolute right-4 top-4 text-slate-400 pointer-events-none text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Rating Control -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Overall Experience Rating <span class="text-rose-500">*</span></label>
+                    <div class="flex items-center gap-4 bg-offwhite-50 p-4 rounded-xl border border-offwhite-300">
+                        <div class="star-rating flex items-center gap-2 text-2xl cursor-pointer text-offwhite-400" id="starContainer">
+                            <i class="fa-solid fa-star transition-colors" data-rating="1" onclick="setRating(1)" title="1 - Poor"></i>
+                            <i class="fa-solid fa-star transition-colors" data-rating="2" onclick="setRating(2)" title="2 - Fair"></i>
+                            <i class="fa-solid fa-star transition-colors" data-rating="3" onclick="setRating(3)" title="3 - Good"></i>
+                            <i class="fa-solid fa-star transition-colors" data-rating="4" onclick="setRating(4)" title="4 - Very Good"></i>
+                            <i class="fa-solid fa-star transition-colors" data-rating="5" onclick="setRating(5)" title="5 - Excellent"></i>
+                        </div>
+                        <span id="ratingLabel" class="text-sm font-medium text-slate-500">Tap stars to rate</span>
+                    </div>
+                    <input type="hidden" id="ratingValue" name="rating" required value="">
+                </div>
+
+                <!-- Testimonial / Feedback -->
+                <div>
+                    <label for="testimonial" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Testimonial / Feedback <span class="text-rose-500">*</span></label>
+                    <textarea id="testimonial" rows="4" required
+                        placeholder="Please tell us about your experience, progress made, or any feedback you have..."
+                        class="w-full p-4 bg-offwhite-50 border border-offwhite-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-navy-500 focus:border-transparent outline-none transition text-navy-900 placeholder-slate-400"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                    <button type="submit" id="submitBtn"
+                        class="w-full py-4 bg-navy-800 hover:bg-navy-700 active:bg-navy-900 text-offwhite-100 font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        <span>Submit Feedback</span>
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Thank You Card -->
+            <div id="thankYouCard" class="hidden p-10 text-center space-y-5">
+                <div class="w-16 h-16 bg-navy-100 text-navy-800 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-navy-950">Thank You!</h3>
+                <p class="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
+                    Your feedback has been received. We deeply appreciate you taking the time to share your experience with us!
+                </p>
+                <div class="pt-4">
+                    <button onclick="resetToNewForm()" class="px-6 py-2.5 bg-offwhite-200 hover:bg-offwhite-300 text-navy-800 font-bold text-xs rounded-xl transition-all">
+                        Submit Another Response
+                    </button>
+                </div>
             </div>
 
-            <!--<div class="json-controls">
-                <div>
-                    <span style="font-size:0.85rem; color:var(--text-muted);">Stored locally in JSON format</span>
-                </div>
-                <div style="display:flex; gap:10px;">
-                    <button class="btn-outline" onclick="toggleJSONView()">View Raw JSON Data</button>
-                    <button class="btn-outline" onclick="downloadJSONFile()">Download Feedback (.json)</button>
-                </div>
-                <div id="jsonBox" class="json-box"></div>
-            </div>-->
         </div>
-    </section> -->
+    </div>
+</section>
     
     <footer class="bg-navy-950 text-offwhite-300 py-12 border-t border-navy-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-navy-900">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-navy-800 text-offwhite-100 flex items-center justify-center font-bold text-xl border border-navy-700">
-                        <img src="./logo.png" alt="logo">
-                    </div>
+                    <div class="w-10 h-10 flex-shrink-0 relative bg-offwhite-100 rounded-xl p-1">
+    <img src="./logo.png" alt="logo" class="w-full h-full object-contain">
+</div>
                     <div>
                         <span class="text-xl font-black text-offwhite-100 tracking-tight block">Roots and Reach</span>
                         <span class="text-xs text-navy-300 font-bold uppercase tracking-wider">Speech Therapy for All</span>
@@ -449,6 +492,7 @@
                     <a href="#therapist" class="hover:text-offwhite-100">Shruti R.</a>
                     <a href="#services" class="hover:text-offwhite-100">Services</a>
                     <a href="#instagram" class="hover:text-offwhite-100">Instagram</a>
+                    <a href="#feedback" class="hover:text-offwhite-100">Client Testimonials</a>
                     <a href="#contact" class="hover:text-offwhite-100">Book Session</a>
                 </div>
             </div>
@@ -459,57 +503,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        document.getElementById('year-span').textContent = new Date().getFullYear();
-
-        // Mobile Nav Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            }
-        });
-
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            });
-        });
-
-        // Form Submission Logic
-        const bookingForm = document.getElementById('booking-form');
-        const formSuccess = document.getElementById('form-success');
-
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formSuccess.classList.remove('hidden');
-            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            bookingForm.reset();
-            
-            setTimeout(() => {
-                formSuccess.classList.add('hidden');
-            }, 7000);
-        });
-
-        window.preselectTherapist = function(name) {
-            const select = document.getElementById('therapist-selection');
-            if(select) {
-                select.value = name;
-            }
-        };
-    </script>
 </body>
+<script src="script.js" defer></script>
 </html>
