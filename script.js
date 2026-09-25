@@ -204,7 +204,6 @@ document.getElementById('year-span').textContent = new Date().getFullYear();
       try {
         await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
           method: 'POST',
-          //mode: 'no-cors', // standard mode required for cross-domain Google Apps Script
           headers: {
         'Content-Type': 'text/plain;charset=utf-8' // Keeps browser from aborting the 302 redirect
       },
